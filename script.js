@@ -93,10 +93,10 @@ function getInfo(citySearch){
         UVIndex(lat, lon);
         fiveDayForecast(lat, lon);
     })
-    
-    
+       
 }
 
+getInfo(searchHistory[0]);
 
 $("#run-search").on("click", function(event) {
     event.preventDefault();
