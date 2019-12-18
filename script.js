@@ -104,7 +104,7 @@ $("#run-search").on("click", function(event) {
     getInfo(citySearch);    
 });
 
-$(".city-list-item").on("click", function(event) {
+$("#list-wrapper").on("click", ".city-list-item", function(event) {
     event.preventDefault();
     citySearch = $(this).text();
     console.log(citySearch);

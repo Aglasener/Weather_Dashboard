@@ -29,7 +29,7 @@ Weather Dashboard is a browser based app that alows the user to view the weather
 
 ## Known Bugs
 
-Upon clicking an item from the search history list, it will work once and then will only except items entered into the search bar, unitll page refresh.
+None
 
 ## Support and contact details
 
