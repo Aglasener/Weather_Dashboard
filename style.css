@@ -1,3 +1,24 @@
 .city-search{
     margin-top: 10px;
 }
+
+.city-list{
+    margin-right: 20px;
+}
+.city-list-item{
+    margin-bottom: 10px;
+    font-size: 16px;
+    border: 1px solid grey;
+    border-radius: 3px;
+    padding: 5px;
+    
+}
+
+.card-title{
+    margin-left: -20px;
+    font-size: 20px;
+}
+.card-text {
+    list-style-type: none;
+    margin-left: -60px;
+}

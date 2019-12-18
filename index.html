@@ -22,14 +22,16 @@
                         <div class="container">
                             <h5 class="mt-0">Search for a City:</h5>
                             <!-- Search form -->
-                            <div class = "row form-group">
-                                <div class = "col-md-9">
-                                    <input class="form-control" id="city-search" type="text" placeholder="Search">
+                            <form>
+                                <div class = "form-row">
+                                    <div class = "col">
+                                        <input class="form-control" id="city-search" type="text" placeholder="Search">
+                                    </div>
+                                    <div class="col">        
+                                        <button type="submit" class="btn btn-dark" id="run-search">Search</button>
+                                    </div>
                                 </div>
-                                <div class = "col-md-3">    
-                                    <button type="submit" class="btn btn-dark" id="run-search">Search</button>
-                                </div>
-                            </div>
+                            </form>
                             <ul class = "list-group city-list">
                             </ul>
                             
@@ -56,37 +58,47 @@
                     <div class="row justify-content-center">
                         <div class="card col-md-2" >
                             <div class="card-body">
-                                <h5 class="card-title">Card title</h5>
-                                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                                <a href="#" class="btn btn-primary">Go somewhere</a>
+                                <h5 class="card-title" id = "day-1-title">Day 1</h5>
+                                <ul class="card-text" id = "day-1-content">
+                                    <li id = "day-1-temp"></li>
+                                    <li id = "day-1-humidity"></li>
+                                </ul>
                             </div>
                         </div>
                         <div class="card col-md-2 ml-4">
                             <div class="card-body">
-                                <h5 class="card-title">Card title</h5>
-                                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                                <a href="#" class="btn btn-primary">Go somewhere</a>
+                                <h5 class="card-title" id = "day-2-title">Day 2</h5>
+                                <ul class="card-text" id = "day-2-content">
+                                    <li id = "day-2-temp"></li>
+                                    <li id = "day-2-humidity"></li>
+                                </ul>
                             </div>
                         </div>
                         <div class="card col-md-2 ml-4">
                             <div class="card-body">
-                                <h5 class="card-title">Card title</h5>
-                                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                                <a href="#" class="btn btn-primary">Go somewhere</a>
+                                <h5 class="card-title" id = "day-3-title">Day 3</h5>
+                                <ul class="card-text" id = "day-3-content">
+                                    <li id = "day-3-temp"></li>
+                                    <li id = "day-3-humidity"></li>
+                                </ul>
                             </div>
                         </div>
                         <div class="card col-md-2 ml-4">
                             <div class="card-body">
-                                <h5 class="card-title">Card title</h5>
-                                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                                <a href="#" class="btn btn-primary">Go somewhere</a>
+                                <h5 class="card-title" id = "day-4-title">Day 4</h5>
+                                <ul class="card-text" id = "day-4-content">
+                                    <li id = "day-4-temp"></li>
+                                    <li id = "day-4-humidity"></li>
+                                </ul>
                             </div>
                         </div>
                         <div class="card col-md-2 ml-4">
                             <div class="card-body">
-                                <h5 class="card-title">Card title</h5>
-                                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                                <a href="#" class="btn btn-primary">Go somewhere</a>
+                                <h5 class="card-title" id = "day-5-title">Day 5</h5>
+                                <ul class="card-text" id = "day-5-content">
+                                    <li id = "day-5-temp"></li>
+                                    <li id = "day-5-humidity"></li>
+                                </ul>
                             </div>
                         </div>      
                     </div>

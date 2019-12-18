@@ -15,9 +15,8 @@ function history () {
         for (var i = 0; i < cityHistory.length; i++){
 
             searchHistory = cityHistory;
-            console.log(searchHistory);
-            var cityHistoryEntry=$("<li class = 'list-group-item city-search'>").text(searchHistory[i]);
-            $(".city-list").prepend(cityHistoryEntry);
+            var cityHistoryEntry=$("<a href='#' class = 'list-group-item-action city-list-item'>").text(searchHistory[i]);
+            $(".city-list").append(cityHistoryEntry);
         };
     };    
 };
@@ -37,8 +36,29 @@ function UVIndex (x, y){
     })
 };
 
-function getInfo(){
-    citySearch = $("#city-search").val().trim();
+function fiveDayForecast (x, y){
+    var queryURL3 = "http://api.openweathermap.org/data/2.5/forecast?&units=imperial&appid=" + 
+    APIKey + "&lat=" + x + "&lon=" + y;
+    console.log(queryURL3);
+
+    $.ajax({
+        url: queryURL3,
+        method: "GET"
+    }).then(function (response){
+        console.log(response);
+        for (var i = 1; i <= 5; i++){
+            var id = 8*Number(i)-7;
+            var d = new Date(response.list[id].dt_txt);
+            $("#day-"+i+"-title").text(d.toLocaleDateString("en-US"));
+            $("#day-"+i+"-temp").text("Temp: " + response.list[id].main.temp + " " + String.fromCharCode(176)+"F");
+            $("#day-"+i+"-humidity").text("Humidity: " + response.list[id].main.humidity +" %");           
+            }
+        //$(".uvindex").text("UV Index: " + response.value);
+    })
+    
+};
+
+function getInfo(citySearch){
     console.log(citySearch);
     searchHistory.unshift(citySearch);
     localStorage.setItem("cities", JSON.stringify(searchHistory));
@@ -60,6 +80,7 @@ function getInfo(){
         lon = response.coord.lon;
 
         UVIndex(lat, lon);
+        fiveDayForecast(lat, lon);
     })
     
     
@@ -67,24 +88,13 @@ function getInfo(){
 
 
 $("#run-search").on("click", function(event) {
+    citySearch = $("#city-search").val().trim();
+    getInfo(citySearch);    
+});
+
+$(".city-list-item").on("click", function(event) {
     event.preventDefault();
-    getInfo();    
+    citySearch = $(this).text();
+    console.log(citySearch);
+    getInfo(citySearch);
 });
-
-/*
-
-  $(".city").html("<h1>" + response.name + " Weather Details</h1>");
-  $(".wind").text("Wind Speed: " + response.wind.speed);
-  $(".humidity").text("Humidity: " + response.main.humidity);
-  $(".temp").text("Temperature (F) " + response.main.temp);
-
-  // Converts the temp to Kelvin with the below formula
-  var tempF = (response.main.temp - 273.15) * 1.80 + 32;
-  $(".tempF").text("Temperature (Kelvin) " + tempF);
-
-  // Log the data in the console as well
-  console.log("Wind Speed: " + response.wind.speed);
-  console.log("Humidity: " + response.main.humidity);
-  console.log("Temperature (F): " + response.main.temp);
-});
-*/
