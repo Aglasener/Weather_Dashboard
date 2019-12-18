@@ -80,7 +80,9 @@ function getInfo(citySearch){
         console.log(response);
         var iconID = response.weather[0].icon;
         var weatherIcon = $("<img>").attr("src", "http://openweathermap.org/img/wn/"+iconID+"@2x.png");
-        $(".city").text(response.name + " Weather ");
+        var d = new Date();
+       
+        $(".city").text(response.name + " " + d.toLocaleDateString("en-US"));
         $(".city").append(weatherIcon);
         $(".wind").text("Wind Speed: " + response.wind.speed + " mph");
         $(".humidity").text("Humidity: " + response.main.humidity+" %");
