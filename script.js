@@ -47,7 +47,7 @@ function fiveDayForecast (x, y){
     }).then(function (response){
         console.log(response);
         for (var i = 1; i <= 5; i++){
-            var id = 8*Number(i)-7;
+            var id = 8*Number(i)-3;
             var d = new Date(response.list[id].dt_txt);
             $("#day-"+i+"-title").text(d.toLocaleDateString("en-US"));
 
