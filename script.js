@@ -50,10 +50,16 @@ function fiveDayForecast (x, y){
             var id = 8*Number(i)-7;
             var d = new Date(response.list[id].dt_txt);
             $("#day-"+i+"-title").text(d.toLocaleDateString("en-US"));
+
+            var iconID = response.list[id].weather[0].icon;
+            console.log("id is " + iconID);
+            var weatherIcon = $("<img>").attr("src", "http://openweathermap.org/img/wn/"+iconID+"@2x.png");
+            $("#day-"+i+"-title").append(weatherIcon);
+    
             $("#day-"+i+"-temp").text("Temp: " + response.list[id].main.temp + " " + String.fromCharCode(176)+"F");
             $("#day-"+i+"-humidity").text("Humidity: " + response.list[id].main.humidity +" %");           
             }
-        //$(".uvindex").text("UV Index: " + response.value);
+    
     })
     
 };
@@ -72,7 +78,10 @@ function getInfo(citySearch){
         method: "GET"
     }).then(function (response) {
         console.log(response);
-        $(".city").text(response.name + " Weather");
+        var iconID = response.weather[0].icon;
+        var weatherIcon = $("<img>").attr("src", "http://openweathermap.org/img/wn/"+iconID+"@2x.png");
+        $(".city").text(response.name + " Weather ");
+        $(".city").append(weatherIcon);
         $(".wind").text("Wind Speed: " + response.wind.speed + " mph");
         $(".humidity").text("Humidity: " + response.main.humidity+" %");
         $(".temp").text("Temperature: " + response.main.temp + " " + String.fromCharCode(176)+"F");
@@ -88,6 +97,7 @@ function getInfo(citySearch){
 
 
 $("#run-search").on("click", function(event) {
+    event.preventDefault();
     citySearch = $("#city-search").val().trim();
     getInfo(citySearch);    
 });
