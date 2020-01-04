@@ -24,7 +24,7 @@ function history () {
 history();
 
 function UVIndex (x, y){
-    var queryURL2 = "http://api.openweathermap.org/data/2.5/uvi?appid=" + 
+    var queryURL2 = "https://api.openweathermap.org/data/2.5/uvi?appid=" + 
     APIKey + "&lat=" + x + "&lon=" + y;
 
     $.ajax({
@@ -37,7 +37,7 @@ function UVIndex (x, y){
 };
 
 function fiveDayForecast (x, y){
-    var queryURL3 = "http://api.openweathermap.org/data/2.5/forecast?&units=imperial&appid=" + 
+    var queryURL3 = "https://api.openweathermap.org/data/2.5/forecast?&units=imperial&appid=" + 
     APIKey + "&lat=" + x + "&lon=" + y;
     console.log(queryURL3);
 
@@ -53,7 +53,7 @@ function fiveDayForecast (x, y){
 
             var iconID = response.list[id].weather[0].icon;
             console.log("id is " + iconID);
-            var weatherIcon = $("<img>").attr("src", "http://openweathermap.org/img/wn/"+iconID+"@2x.png");
+            var weatherIcon = $("<img>").attr("src", "https://openweathermap.org/img/wn/"+iconID+"@2x.png");
             $("#day-"+i+"-title").append(weatherIcon);
     
             $("#day-"+i+"-temp").text("Temp: " + response.list[id].main.temp + " " + String.fromCharCode(176)+"F");
@@ -79,7 +79,7 @@ function getInfo(citySearch){
     }).then(function (response) {
         console.log(response);
         var iconID = response.weather[0].icon;
-        var weatherIcon = $("<img>").attr("src", "http://openweathermap.org/img/wn/"+iconID+"@2x.png");
+        var weatherIcon = $("<img>").attr("src", "https://openweathermap.org/img/wn/"+iconID+"@2x.png");
         var d = new Date();
        
         $(".city").text(response.name + " " + d.toLocaleDateString("en-US"));
